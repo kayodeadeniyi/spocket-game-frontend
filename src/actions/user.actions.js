@@ -40,7 +40,7 @@ export const getAll = () => {
 
     userService.getAll()
       .then(
-        games => dispatch(success(games)),
+        users => dispatch(success(users)),
         error => dispatch(failure(error))
       )
   }

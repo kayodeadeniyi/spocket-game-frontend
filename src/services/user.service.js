@@ -1,6 +1,4 @@
-import { authHeader } from '../helpers'
-
-const API_HOST = 'http://localhost:3000'
+import { authHeader, handleResponse } from '../helpers'
 
 export const login = (email, password) => {
   const requestOptions = {
@@ -9,7 +7,7 @@ export const login = (email, password) => {
     body: JSON.stringify({ email, password })
   }
 
-  return fetch(`${API_HOST}/authenticate`, requestOptions)
+  return fetch(`${process.env.REACT_APP_API_HOST}/authenticate`, requestOptions)
     .then(handleResponse)
     .then(user => {
       if (user.token)
@@ -27,16 +25,5 @@ export const getAll = () => {
     headers: authHeader()
   }
 
-  return fetch(`${API_HOST}/users`, requestOptions).then(handleResponse)
-}
-
-const handleResponse = (response) => {
-  return response.json().then(myJson => {
-    if (!response.ok) {
-      const error = (myJson && myJson.error) || response.statusText
-      return Promise.reject(error)
-    }
-
-    return Promise.resolve(myJson)
-  })
+  return fetch(`${process.env.REACT_APP_API_HOST}/users`, requestOptions).then(handleResponse)
 }
