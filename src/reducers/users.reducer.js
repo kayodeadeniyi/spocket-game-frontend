@@ -6,7 +6,7 @@ export const users = (state = {}, action) => {
       return {loading: true}
 
     case userConstants.GETALL_SUCCESS:
-      return {allUsers: action.users}
+      return {allUsers: action.users.users, loading: false}
 
     case userConstants.GETALL_FAILURE:
       return {error: action.error, loading: false}
