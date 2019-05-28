@@ -6,6 +6,8 @@ import { history } from '../helpers'
 import { alertActions } from '../actions'
 import { PrivateRoute } from '../components/PrivateRoute'
 import HomePage from '../components/HomePage'
+import Leaderboard from '../components/Leaderboard'
+import Scoreboard from '../components/Scoreboard'
 import LoginPage from '../components/LoginPage'
 
 class App extends React.Component {
@@ -20,12 +22,16 @@ class App extends React.Component {
     const { alert } = this.props
 
     return (
-      <div>
-        {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
-        <Router history={history}>
-          <PrivateRoute exact path='/' component={HomePage} />
-          <Route path='/login' component={LoginPage} />
-        </Router>
+      <div className='jumbotron jumbotron-fluid'>
+        <div className='container'>
+          {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+          <Router history={history}>
+            <PrivateRoute exact path='/' component={HomePage} />
+            <PrivateRoute exact path='/leaderboard' component={Leaderboard} />
+            <PrivateRoute exact path='/scoreboard' component={Scoreboard} />
+            <Route path='/login' component={LoginPage} />
+          </Router>
+        </div>
       </div>
     )
   }
