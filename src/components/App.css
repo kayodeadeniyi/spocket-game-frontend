@@ -9,3 +9,19 @@ body,
 .jumbotron { height: 100%; }
 
 .jumbotron { overflow: scroll; }
+
+.game {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.game .btn-primary {
+  align-self: flex-end;
+  height: 50px;
+  width: 200px;
+}
+
+li {
+  font-size: 20px;
+}

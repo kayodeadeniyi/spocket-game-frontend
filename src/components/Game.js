@@ -33,10 +33,10 @@ class Game extends React.Component {
       // TODO: Put the actual user that won.
       alertActions.success('Someone won')
       this.props.dispatch(scoreboardActions.submitGameResult(this.prepareParams()))
-      this.setState({
+      setTimeout(() => this.setState({
         score: {'user 1': 0, 'user 2': 0},
         startGame: false
-      })
+      }), 2000)
     }
   }
 
@@ -55,7 +55,7 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='game'>
         {!this.state.startGame && <button type='button' onClick={this.initializeGame} className='btn btn-primary'>Start Game</button>}
         {this.state.startGame &&
           <>

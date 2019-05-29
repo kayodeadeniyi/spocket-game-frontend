@@ -138,8 +138,8 @@ export default class Wheel extends React.Component {
   render() {
     return (
       <>
-        <input type='button' value='spin' id='spin' />
         <canvas id='canvas' width='500' height='500'></canvas>
+        <button type='button' id='spin' className='btn btn-primary'>Spin</button>
       </>
     )
   }

@@ -12,7 +12,7 @@ class Scoreboard extends React.Component {
     const { scoreboards } = this.props
 
     return (
-      <div>
+      <div className='scoreboard'>
         <p>ScoreBoard</p>
         <table className='table'>
           <thead>
