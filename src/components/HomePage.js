@@ -20,9 +20,8 @@ class HomePage extends React.Component {
 }
 
 const mapStateToProps = ({authentication}) => {
-  const { user } = authentication
 
-  return {user}
+  return {user: authentication}
 }
 
 export default connect(mapStateToProps)(HomePage)

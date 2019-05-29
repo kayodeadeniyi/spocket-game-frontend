@@ -10,8 +10,8 @@ export const login = (email, password) => {
   return fetch(`${process.env.REACT_APP_API_HOST}/authenticate`, requestOptions)
     .then(handleResponse)
     .then(user => {
-      if (user.token)
-        localStorage.setItem('user', JSON.stringify(user))
+      if (user.authenticate)
+        localStorage.setItem('user', JSON.stringify(user.authenticate))
 
       return user
     })

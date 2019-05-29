@@ -5,7 +5,7 @@ import { scoreboardActions } from '../actions'
 
 class Scoreboard extends React.Component {
   componentDidMount() {
-    !this.props.scoreboards.allScores && this.props.dispatch(scoreboardActions.getAll())
+    !this.props.scoreboards.allGames && this.props.dispatch(scoreboardActions.getAll())
   }
 
   render() {
@@ -24,16 +24,14 @@ class Scoreboard extends React.Component {
           </thead>
           <tbody>
             {
-              scoreboards.allScores &&
-              scoreboards.allScores.map((score, index) => {
-                return(
-                  <tr key={score.id}>
-                    <td>{index + 1}</td>
-                    <td>{`${score.winner.first_name} ${score.winner.last_name}`}</td>
-                    <td>{`${score.winner_score} - ${score.loser_score}`}</td>
-                  </tr>
-                )
-              })
+              scoreboards.allGames &&
+              scoreboards.allGames.map((game, index) => (
+                <tr key={game.id}>
+                  <td>{index + 1}</td>
+                  <td>{`${game.winner.first_name} ${game.winner.last_name}`}</td>
+                  <td>{`${game.winner_score} - ${game.loser_score}`}</td>
+                </tr>
+              ))
             }
           </tbody>
         </table>
