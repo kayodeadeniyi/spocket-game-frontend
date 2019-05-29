@@ -7,3 +7,5 @@ html,
 body,
 #root,
 .jumbotron { height: 100%; }
+
+.jumbotron { overflow: scroll; }

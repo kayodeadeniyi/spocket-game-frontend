@@ -7,7 +7,6 @@ import { alertActions } from '../actions'
 import { PrivateRoute } from '../components/PrivateRoute'
 import HomePage from '../components/HomePage'
 import Leaderboard from '../components/Leaderboard'
-import Scoreboard from '../components/Scoreboard'
 import LoginPage from '../components/LoginPage'
 
 import './App.css'
