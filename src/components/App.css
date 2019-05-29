@@ -1,0 +1,9 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+html,
+body,
+#root,
+.jumbotron { height: 100%; }
