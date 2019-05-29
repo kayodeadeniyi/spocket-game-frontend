@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import Scoreboard from './Scoreboard'
+import Game from './Game'
+
 
 class HomePage extends React.Component {
   render() {
@@ -9,6 +12,8 @@ class HomePage extends React.Component {
     return (
       <div>
         <h1>Hi {user.first_name}!</h1>
+        <Game />
+        <Scoreboard />
       </div>
     )
   }

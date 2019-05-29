@@ -5,7 +5,7 @@ import { userActions } from '../actions'
 
 class Leaderboard extends React.Component {
   componentDidMount() {
-    this.props.dispatch(userActions.getAll())
+    !this.props.users.allUsers && this.props.dispatch(userActions.getAll())
   }
 
   render() {

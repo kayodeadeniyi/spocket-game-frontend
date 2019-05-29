@@ -5,7 +5,7 @@ import { scoreboardActions } from '../actions'
 
 class Scoreboard extends React.Component {
   componentDidMount() {
-    this.props.dispatch(scoreboardActions.getAll())
+    !this.props.scoreboards.allScores && this.props.dispatch(scoreboardActions.getAll())
   }
 
   render() {
@@ -19,7 +19,6 @@ class Scoreboard extends React.Component {
             <tr>
               <th scope='col' >S/N</th>
               <th scope='col' >Winner</th>
-              <th scope='col' >Loser</th>
               <th scope='col' >Score</th>
             </tr>
           </thead>
@@ -30,8 +29,7 @@ class Scoreboard extends React.Component {
                 return(
                   <tr key={score.id}>
                     <td>{index + 1}</td>
-                    <td>{score.winner_id}</td>
-                    <td>{score.loser_id}</td>
+                    <td>{`${score.winner.first_name} ${score.winner.last_name}`}</td>
                     <td>{`${score.winner_score} - ${score.loser_score}`}</td>
                   </tr>
                 )

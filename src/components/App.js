@@ -10,6 +10,8 @@ import Leaderboard from '../components/Leaderboard'
 import Scoreboard from '../components/Scoreboard'
 import LoginPage from '../components/LoginPage'
 
+import './App.css'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -28,7 +30,6 @@ class App extends React.Component {
           <Router history={history}>
             <PrivateRoute exact path='/' component={HomePage} />
             <PrivateRoute exact path='/leaderboard' component={Leaderboard} />
-            <PrivateRoute exact path='/scoreboard' component={Scoreboard} />
             <Route path='/login' component={LoginPage} />
           </Router>
         </div>

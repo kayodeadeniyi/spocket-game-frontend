@@ -6,7 +6,7 @@ export const scoreboards = (state = {}, action) => {
       return {loading: true}
 
     case scoreboardConstants.GETALL_SUCCESS:
-      return {allScores: action.scores, loading: false}
+      return {allScores: action.scores.games, loading: false}
 
     case scoreboardConstants.GETALL_FAILURE:
       return {error: action.error, loading: false}
