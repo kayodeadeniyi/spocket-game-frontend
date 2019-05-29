@@ -58,8 +58,16 @@ class Game extends React.Component {
       <div>
         {!this.state.startGame && <button type='button' onClick={this.initializeGame} className='btn btn-primary'>Start Game</button>}
         {this.state.startGame &&
-          <Wheel updateScore={this.updateScore} />
+          <>
+            <div>
+              <p>Current game score</p>
+              <p>User 1: {this.state.score['user 1']}</p>
+              <p>User 2: {this.state.score['user 2']}</p>
+            </div>
+            <Wheel updateScore={this.updateScore} />
+          </>
         }
+
       </div>
     )
   }

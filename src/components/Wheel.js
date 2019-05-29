@@ -105,7 +105,7 @@ export default class Wheel extends React.Component {
   }
 
   rotateWheel() {
-    spinTime += 500
+    spinTime += 100
     if(spinTime >= spinTimeTotal) {
       this.stopRotateWheel()
       return
