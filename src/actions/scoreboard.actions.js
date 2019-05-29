@@ -26,7 +26,7 @@ export const submitGameResult = (gamesParams) => {
     scoreboardService.submitGameResult(gamesParams)
       .then(
         scores => {
-          getAll()
+          dispatch(getAll())
           dispatch(alertActions.success('Game saved'))
         },
         error => {
