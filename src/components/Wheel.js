@@ -12,8 +12,6 @@ let spinTimeTotal = 0
 
 let ctx
 
-
-
 export default class Wheel extends React.Component {
   componentDidMount() {
     document.getElementById('spin').addEventListener('click', this.spin.bind(this))
@@ -105,11 +103,12 @@ export default class Wheel extends React.Component {
   }
 
   rotateWheel() {
-    spinTime += 100
+    spinTime += 300
     if(spinTime >= spinTimeTotal) {
       this.stopRotateWheel()
       return
     }
+
     let spinAngle = spinAngleStart - this.easeOut(spinTime, 0, spinAngleStart, spinTimeTotal)
     startAngle += (spinAngle * Math.PI / 180)
     this.drawRouletteWheel()

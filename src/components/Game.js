@@ -28,15 +28,20 @@ class Game extends React.Component {
     this.setState({winner})
   }
 
-  componentDidUpdate() {
-    if (Object.values(this.state.score).includes(3)) {
+  componentDidUpdate(prevProps, prevState) {
+    const prevScoreValues = Object.values(prevState.score)
+    const currentScoreValues = Object.values(this.state.score)
+    if (currentScoreValues.includes(3) && JSON.stringify(prevScoreValues) !== JSON.stringify(currentScoreValues)) {
       // TODO: Put the actual user that won.
-      alertActions.success('Someone won')
+      this.props.dispatch(alertActions.success('Someone won'))
       this.props.dispatch(scoreboardActions.submitGameResult(this.prepareParams()))
-      setTimeout(() => this.setState({
-        score: {'user 1': 0, 'user 2': 0},
-        startGame: false
-      }), 2000)
+      setTimeout(() => {
+        this.setState({
+          score: {'user 1': 0, 'user 2': 0},
+          startGame: false
+        })
+        this.props.dispatch(alertActions.clear())
+      }, 2000)
     }
   }
 

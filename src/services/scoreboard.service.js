@@ -10,7 +10,7 @@ export const getAll = () => {
 }
 
 export const submitGameResult = (game_params) => {
-  console.log(game_params, 'Hello')
+
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...authHeader() },
